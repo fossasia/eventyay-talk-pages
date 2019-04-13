@@ -26,8 +26,7 @@ front_page_bottom = EventPluginSignal(
 @receiver(nav_event, dispatch_uid="pages_nav")
 def control_nav_pages(sender, request=None, **kwargs):
     print('in control nav pages')
-    if not request.user.has_event_permission(request.organizer, request.event, 'can_change_event_settings',
-                                             request=request):
+    if not request.user.has_perm('orga.change_settings', request.event):
         return []
     url = resolve(request.path_info)
     return [
@@ -35,7 +34,6 @@ def control_nav_pages(sender, request=None, **kwargs):
             'label': _('Pages'),
             'url': reverse('plugins:pretalx_pages:index', kwargs={
                 'event': request.event.slug,
-                'organizer': request.event.organizer.slug,
             }),
             'active': (url.namespace == 'plugins:pretalx_pages'),
             'icon': 'file-text',
