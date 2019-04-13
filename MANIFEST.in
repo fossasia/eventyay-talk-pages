@@ -1,0 +1,3 @@
+recursive-include pretalx_pages/static *
+recursive-include pretalx_pages/templates *
+recursive-include pretalx_pages/locale *
