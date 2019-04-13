@@ -1,0 +1,14 @@
+{% load i18n %}
+{% load eventurl %}
+<section class="front-page">
+    <h3>{% trans "More information" %}</h3>
+    <ul>
+        {% for p in pages %}
+            <li>
+                <a href="{% eventurl event 'plugins:pretalx_pages:show' slug=p.slug %}">
+                    {{ p.title }}
+                </a>
+            </li>
+        {% endfor %}
+    </ul>
+</section>

@@ -1,0 +1,57 @@
+{% extends "pretalx_pages/base.html" %}
+{% load i18n %}
+{% load compress %}
+{% load static %}
+{% load eventurl %}
+{% block title %}{% trans "Pages" %}{% endblock %}
+{% block content %}
+    <h1>{% trans "Pages" %}</h1>
+    {% if pages|length == 0 %}
+<p>ho ho ho</p>
+        <div class="empty-collection">
+            <p>
+                {% blocktrans trimmed %}
+                    You haven't created any pages yet.
+                {% endblocktrans %}
+            </p>
+
+            <a href="{% url "plugins:pretalx_pages:create" organizer=request.event.organizer.slug event=request.event.slug %}"
+                    class="btn btn-primary btn-lg"><i class="fa fa-plus"></i> {% trans "Create a new page" %}</a>
+        </div>
+    {% else %}
+        <p>
+            <a href="{% url "plugins:pretalx_pages:create" organizer=request.event.organizer.slug event=request.event.slug %}" class="btn btn-default"><i class="fa fa-plus"></i> {% trans "Create a new page" %}
+            </a>
+        </p>
+        <div class="table-responsive">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>{% trans "Page title" %}</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody>
+                {% for p in pages %}
+                    <tr>
+                        <td>
+                            <strong><a href="{% url "plugins:pretalx_pages:edit" organizer=request.event.organizer.slug event=request.event.slug page=p.id %}">{{ p.title }}</a></strong>
+                        </td>
+                        <td class="text-right">
+                            <a href="{% url "plugins:pretalx_pages:up" organizer=request.event.organizer.slug event=request.event.slug page=p.id %}" class="btn btn-default btn-sm {% if forloop.counter0 == 0 %}disabled{% endif %}"><i class="fa fa-arrow-up"></i></a>
+                            <a href="{% url "plugins:pretalx_pages:down" organizer=request.event.organizer.slug event=request.event.slug page=p.id %}" class="btn btn-default btn-sm {% if forloop.revcounter0 == 0 %}disabled{% endif %}"><i class="fa fa-arrow-down"></i></a>
+                        </td>
+                        <td class="text-right">
+                            <a href="{% eventurl request.event "plugins:pretalx_pages:show" slug=p.slug %}" class="btn btn-default btn-sm" target="_blank"><i class="fa fa-eye"></i></a>
+                            <a href="{% url "plugins:pretalx_pages:edit" organizer=request.event.organizer.slug event=request.event.slug page=p.id %}" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
+                            <a href="{% url "plugins:pretalx_pages:delete" organizer=request.event.organizer.slug event=request.event.slug page=p.id %}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
+                        </td>
+                    </tr>
+                {% endfor %}
+                </tbody>
+            </table>
+        </div>
+        {% include "pretalx/pagination.html" %}
+    {% endif %}
+{% endblock %}

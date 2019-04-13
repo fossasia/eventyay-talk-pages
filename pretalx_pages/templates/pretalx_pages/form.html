@@ -1,0 +1,61 @@
+{% extends "pretalx_pages/base.html" %}
+{% load i18n %}
+{% load bootstrap3 %}
+{% load static %}
+{% block title %}{% trans "Page" %}{% endblock %}
+{% block content %}
+    <h1>{% trans "Page" %}</h1>
+    <form action="" method="post" class="form-horizontal" data-id="{{ page.id }}">
+        {% csrf_token %}
+        {% bootstrap_form_errors form type='non_fields' %}
+        <div class="row">
+            <div class="col-xs-12 {% if page %}col-lg-10{% endif %}">
+                <fieldset>
+                    <legend>{% trans "General information" %}</legend>
+                    {% bootstrap_field form.title layout="horizontal" %}
+                    {% bootstrap_field form.slug layout="horizontal" %}
+                    {% bootstrap_field form.link_on_frontpage layout="horizontal" %}
+                    {% bootstrap_field form.link_in_footer layout="horizontal" %}
+                    {% bootstrap_field form.require_confirmation layout="horizontal" %}
+                </fieldset>
+                <fieldset id="content">
+                    <legend>{% trans "Page content" %}</legend>
+                    <noscript>
+                        <div class="alert alert-danger">
+                            {% trans "Please enable JavaScript" %}
+                        </div>
+                    </noscript>
+
+                    <ul class="nav nav-tabs">
+                        {% for lng, text in locales %}
+                            <li role="presentation" {% if forloop.first %}class="active"{% endif %}>
+                                <a href="#editor-{{ lng }}" data-toggle="tab">{{ lng }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+
+                    <div class="tab-content">
+                        {% for lng, text in locales %}
+                            <div class="tab-pane {% if forloop.first %}active{% endif %}" id="editor-{{ lng }}">
+                                <div class="editor" data-lng="{{ lng }}">
+                                    {{ text|safe }}
+                                </div>
+                            </div>
+                        {% endfor %}
+                    </div>
+
+                    <div class="sr-only">
+                        {{ form.text }}
+                    </div>
+                </fieldset>
+                <div class="form-group submit-group">
+                    <button type="submit" class="btn btn-primary btn-save">
+                        {% trans "Save" %}
+                    </button>
+                </div>
+            </div>
+        </div>
+    </form>
+    <script type="application/javascript" src="{% static 'pretalx_pages/quill/quill.js' %}"></script>
+    <script type="application/javascript" src="{% static 'pretalx_pages/editor.js" %}'></script>
+{% endblock %}

@@ -25,12 +25,12 @@ cmdclass = {'build': CustomBuild}
 
 setup(
     name='pretalx-pages',
-    version='0.0.0',
+    version='0.1.0',
     description="Static pages for pretalx, e.g. information, venue listings, a code of conduct, etc.",
     long_description=long_description,
     url='https://github.com/pretalx/pretalx-pages',
-    author='Tobias Kunze',
-    author_email='r@rixx.de',
+    author='Moshe Nahmias',
+    author_email='moshegrey+pretalx_pages@gmail.com',
     license='Apache Software License',
     install_requires=[],
     packages=find_packages(exclude=['tests', 'tests.*']),
