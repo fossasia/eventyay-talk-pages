@@ -74,6 +74,7 @@ class PageForm(I18nModelForm):
 
     def __init__(self, *args, **kwargs):
         self.event = kwargs.get('event')
+        del kwargs['event']
         super().__init__(*args, **kwargs)
 
     class Meta:
@@ -150,7 +151,6 @@ class PageUpdate(PageDetailMixin, PageEditorMixin, UpdateView):
 
     def get_success_url(self) -> str:
         return reverse('plugins:pretalx_pages:edit', kwargs={
-            'organizer': self.request.event.organizer.slug,
             'event': self.request.event.slug,
             'page': self.object.pk
         })
@@ -158,7 +158,7 @@ class PageUpdate(PageDetailMixin, PageEditorMixin, UpdateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data()
         ctx['locales'] = []
-        for lng in self.request.event.settings.locales:
+        for lng in self.request.event.locales:
             dataline = (
                 self.object.text.data[lng]
                 if self.object.text is not None and (
@@ -172,13 +172,6 @@ class PageUpdate(PageDetailMixin, PageEditorMixin, UpdateView):
     @transaction.atomic
     def form_valid(self, form):
         messages.success(self.request, _('Your changes have been saved.'))
-        if form.has_changed():
-            self.object.log_action(
-                'pretalx_pages.page.changed', user=self.request.user, data={
-                    k: form.cleaned_data.get(k) for k in form.changed_data
-                }
-            )
-        self.request.event.cache.clear()
         return super().form_valid(form)
 
     def form_invalid(self, form):
@@ -196,29 +189,27 @@ class PageCreate(PageEditorMixin, CreateView):
         ctx = super().get_context_data()
         ctx['locales'] = [
             (l, "")
-            for l in self.request.event.settings.locales
+            for l in self.request.event.locales
         ]
         return ctx
 
     def get_success_url(self) -> str:
         return reverse('plugins:pretalx_pages:index', kwargs={
-            'organizer': self.request.event.organizer.slug,
             'event': self.request.event.slug,
         })
 
     @transaction.atomic
     def form_valid(self, form):
         form.instance.event = self.request.event
-        form.instance.event = self.request.event
         form.instance.position = (self.request.event.page_set.aggregate(p=Max('position'))['p'] or 0) + 1
         messages.success(self.request, _('The new page has been created.'))
         ret = super().form_valid(form)
-        form.instance.log_action('pretalx_pages.page.added', data=dict(form.cleaned_data),
-                                 user=self.request.user)
-        self.request.event.cache.clear()
+        print(ret)
         return ret
 
     def form_invalid(self, form):
+        print('is valid? ', form.is_valid())
+        print('errors: ', form.errors)
         messages.error(self.request, _('We could not save your changes. See below for details.'))
         return super().form_invalid(form)
 
@@ -228,10 +219,11 @@ class ShowPageView(TemplateView):
 
     def get_page(self):
         try:
-            return Page.objects.get(
+            res = Page.objects.get(
                 event=self.request.event,
                 slug=self.kwargs['slug']
             )
+            return res
         except Page.DoesNotExist:
             raise Http404(_("The requested page does not exist."))
 

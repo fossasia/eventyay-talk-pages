@@ -5,7 +5,7 @@
     <ul>
         {% for p in pages %}
             <li>
-                <a href="{% eventurl event 'plugins:pretalx_pages:show' slug=p.slug %}">
+                <a href="{% eventurl event 'plugins:pretalx_pages:edit' slug=p.slug %}">
                     {{ p.title }}
                 </a>
             </li>

@@ -64,15 +64,20 @@ def control_nav_pages(sender, request=None, **kwargs):
 
 @receiver(footer_link, dispatch_uid="pages_footer_links")
 def footer_link_pages(sender, request=None, **kwargs):
-    print('in footer links pages')
-    return [
+    # sender = Event.objects.filter(name=sender).all()
+    print('footer link pages')
+    print('sender is: ', sender)
+    res = [
             {
                 'label': p.title,
-                'url': reverse(sender, 'plugins:pretalx_pages:show', kwargs={
-                    'slug': p.slug
+                'url': reverse('plugins:pretalx_pages:show', kwargs={
+                    'slug': p.slug,
+                    'event': p.event.slug,
                 })
             } for p in Page.objects.filter(event=sender, link_in_footer=True)
         ]
+    print('res is: ', res)
+    return res
 
 
 @receiver(signal=front_page_bottom, dispatch_uid="pages_frontpage_links")
@@ -97,7 +102,7 @@ def html_head_control(sender, request=None, **kwargs):
     return [
             {
                 'label': p.title,
-                'url': reverse(sender, 'plugins:pretalx_pages:show', kwargs={
+                'url': reverse('plugins:pretalx_pages:show', kwargs={
                     'slug': p.slug
                 })
             } for p in Page.objects.filter(event=sender, link_in_footer=True)

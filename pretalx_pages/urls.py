@@ -21,8 +21,7 @@ urlpatterns = [
     url(r'^orga/event/(?P<event>[^/]+)/pages/(?P<page>\d+)/down$',
         views.page_move_down,
         name='down'),
-]
-
-event_patterns = [
-    url(r'^page/(?P<slug>[^/]+)/$', views.ShowPageView.as_view(), name='show'),
+    url(r'^event/(?P<event>[^/]+)/page/(?P<slug>[^/]+)/$',
+        views.ShowPageView.as_view(),
+        name='show'),
 ]
