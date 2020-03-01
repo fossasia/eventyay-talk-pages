@@ -4,6 +4,8 @@ Static pages for pretalx
 This is a plugin for `pretalx`_ that allows you to add static pages to your
 event, for example FAQ, Terms of Service, a Code of Conduct, etc.
 
+|screenshots|
+
 Development setup
 -----------------
 
@@ -31,3 +33,5 @@ Released under the terms of the Apache License 2.0
 
 .. _pretalx: https://github.com/pretalx/pretalx
 .. _pretalx development setup: https://docs.pretalx.org/en/latest/developer/setup.html
+.. |screenshots| image:: https://raw.githubusercontent.com/pretalx/pretalx-pages/master/assets/screenshots.png
+   :alt: Screenshots of pretalx pages
