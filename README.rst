@@ -6,7 +6,8 @@ event, for example FAQ, Terms of Service, a Code of Conduct, etc.
 
 |screenshots|
 
-You can install this plugin via pip: ``pip install pretalx-pages``.
+You can install this plugin via pip: ``pip install pretalx-pages``. Requires
+pretalx 1.2.0 or higher.
 
 Development setup
 -----------------
