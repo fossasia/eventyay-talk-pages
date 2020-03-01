@@ -6,6 +6,8 @@ event, for example FAQ, Terms of Service, a Code of Conduct, etc.
 
 |screenshots|
 
+You can install this plugin via pip: ``pip install pretalx-pages``.
+
 Development setup
 -----------------
 
