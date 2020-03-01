@@ -1,20 +1,22 @@
 from django.apps import AppConfig
-from django.utils.translation import ugettext_lazy
+from django.utils.translation import gettext_lazy
 
 
 class PluginApp(AppConfig):
-    name = 'pretalx_pages'
-    verbose_name = 'Static pages for pretalx'
+    name = "pretalx_pages"
+    verbose_name = "Pages"
 
     class PretalxPluginMeta:
-        name = ugettext_lazy('Static pages for pretalx')
-        author = 'Tobias Kunze'
-        description = ugettext_lazy("Static pages for pretalx, e.g. information, venue listings, a code of conduct, etc.")
+        name = gettext_lazy("Pages")
+        author = "Tobias Kunze"
+        description = gettext_lazy(
+            "Add static pages to your event site, for example Terms of Service, venue listings, a code of conduct, etc."
+        )
         visible = True
-        version = '0.0.0'
+        version = "1.0.0"
 
     def ready(self):
         from . import signals  # NOQA
 
 
-default_app_config = 'pretalx_pages.PluginApp'
+default_app_config = "pretalx_pages.PluginApp"

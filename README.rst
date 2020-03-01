@@ -1,7 +1,8 @@
 Static pages for pretalx
 ==========================
 
-This is a plugin for `pretalx`_. 
+This is a plugin for `pretalx`_ that allows you to add static pages to your
+event, for example FAQ, Terms of Service, a Code of Conduct, etc.
 
 Development setup
 -----------------

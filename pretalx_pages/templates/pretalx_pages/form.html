@@ -1,0 +1,40 @@
+{% extends "orga/base.html" %}
+{% load i18n %}
+{% load bootstrap4 %}
+{% load static %}
+{% block title %}{% trans "Page" %}{% endblock %}
+{% block content %}
+    <h1>{% trans "Page" %}</h1>
+    <form action="" method="post" class="form-horizontal" data-id="{{ page.id }}">
+        {% csrf_token %}
+        {% bootstrap_form_errors form type='non_fields' %}
+        <div class="row">
+            <div class="col-xs-12 {% if page %}col-lg-10{% endif %}">
+                <fieldset>
+                    <legend>{% trans "General information" %}</legend>
+                    {% bootstrap_field form.title layout="event" %}
+                    {% bootstrap_field form.slug layout="event" %}
+                    {% bootstrap_field form.link_in_footer layout="event" %}
+                </fieldset>
+                <fieldset id="content">
+                    <legend>{% trans "Page content" %}</legend>
+
+                    {% bootstrap_field form.text layout="event" %}
+                </fieldset>
+                {% include "orga/submit_row.html" %}
+            </div>
+            {% if page and page.pk %}
+                <div class="col-xs-12 col-lg-2">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h3 class="panel-title">
+                                {% trans "Page history" %}
+                            </h3>
+                        </div>
+                        {% include "common/logs.html" with entries=page.logged_actions %}
+                    </div>
+                </div>
+            {% endif %}
+        </div>
+    </form>
+{% endblock %}

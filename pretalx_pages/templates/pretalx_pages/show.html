@@ -1,0 +1,12 @@
+{% extends "common/base.html" %}
+{% load rich_text %}
+
+{% block title %}{{ page.title }} :: {{ event.name }}{% endblock %}
+{% block content %}
+
+    <h2>{{ page.title }}</h2>
+    <article>
+        {{ page.text|rich_text }}
+    </article>
+
+{% endblock %}
