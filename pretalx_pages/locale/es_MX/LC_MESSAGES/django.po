@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-04-14 00:25+0000\n"
+"POT-Creation-Date: 2020-09-04 10:11+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -111,38 +111,38 @@ msgstr ""
 msgid "Create a new page"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:41
-#: local/pretalx-pages/pretalx_pages/views.py:46
-#: local/pretalx-pages/pretalx_pages/views.py:110
-#: local/pretalx-pages/pretalx_pages/views.py:218
+#: local/pretalx-pages/pretalx_pages/views.py:42
+#: local/pretalx-pages/pretalx_pages/views.py:47
+#: local/pretalx-pages/pretalx_pages/views.py:111
+#: local/pretalx-pages/pretalx_pages/views.py:219
 msgid "The requested page does not exist."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:60
+#: local/pretalx-pages/pretalx_pages/views.py:61
 msgid "The order of pages has been updated."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:91
+#: local/pretalx-pages/pretalx_pages/views.py:92
 msgid "You already have a page on that URL."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:97
+#: local/pretalx-pages/pretalx_pages/views.py:98
 msgid "URL form"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:132
+#: local/pretalx-pages/pretalx_pages/views.py:133
 msgid "The selected page has been deleted."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:158
+#: local/pretalx-pages/pretalx_pages/views.py:159
 msgid "Your changes have been saved."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:170
-#: local/pretalx-pages/pretalx_pages/views.py:204
+#: local/pretalx-pages/pretalx_pages/views.py:171
+#: local/pretalx-pages/pretalx_pages/views.py:205
 msgid "We could not save your changes. See below for details."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:192
+#: local/pretalx-pages/pretalx_pages/views.py:193
 msgid "The new page has been created."
 msgstr ""
