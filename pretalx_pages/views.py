@@ -32,10 +32,11 @@ class PageList(EventPermissionRequired, ListView):
 
 
 def page_move(request, page, up=True):
-    """
-    This is a helper function to avoid duplicating code in page_move_up and
-    page_move_down. It takes a page and a direction and then tries to bring
-    all pages for this event in a new order.
+    """This is a helper function to avoid duplicating code in page_move_up and
+    page_move_down.
+
+    It takes a page and a direction and then tries to bring all pages
+    for this event in a new order.
     """
     if not request.user.has_perm("orga.change_settings", request.event):
         raise Http404(_("The requested page does not exist."))
