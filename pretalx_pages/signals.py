@@ -1,7 +1,6 @@
 from django.dispatch import receiver
 from django.urls import reverse
 from django.utils.translation import ugettext_lazy as _
-
 from pretalx.cfp.signals import footer_link
 from pretalx.common.signals import activitylog_display
 from pretalx.common.urls import build_absolute_uri

@@ -14,7 +14,6 @@ from django.views.generic import (
     UpdateView,
 )
 from i18nfield.forms import I18nModelForm
-
 from pretalx.common.mixins.views import EventPermissionRequired
 
 from .models import Page
@@ -89,7 +88,8 @@ class PageForm(I18nModelForm):
         slug = self.cleaned_data["slug"]
         if Page.objects.filter(slug__iexact=slug, event=self.event).exists():
             raise forms.ValidationError(
-                _("You already have a page on that URL."), code="duplicate_slug",
+                _("You already have a page on that URL."),
+                code="duplicate_slug",
             )
         return slug
 
@@ -112,7 +112,10 @@ class PageDetailMixin:
 
     def get_success_url(self) -> str:
         return reverse(
-            "plugins:pretalx_pages:index", kwargs={"event": self.request.event.slug,}
+            "plugins:pretalx_pages:index",
+            kwargs={
+                "event": self.request.event.slug,
+            },
         )
 
 
@@ -181,7 +184,10 @@ class PageCreate(EventPermissionRequired, PageEditorMixin, CreateView):
 
     def get_success_url(self) -> str:
         return reverse(
-            "plugins:pretalx_pages:index", kwargs={"event": self.request.event.slug,}
+            "plugins:pretalx_pages:index",
+            kwargs={
+                "event": self.request.event.slug,
+            },
         )
 
     @transaction.atomic
