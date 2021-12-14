@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2020-09-04 10:11+0000\n"
+"POT-Creation-Date: 2021-10-26 13:05+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,14 +17,14 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 
-#: local/pretalx-pages/pretalx_pages/__init__.py:10
+#: local/pretalx-pages/pretalx_pages/apps.py:10
 #: local/pretalx-pages/pretalx_pages/signals.py:20
 #: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:5
 #: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:7
 msgid "Pages"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/__init__.py:13
+#: local/pretalx-pages/pretalx_pages/apps.py:13
 msgid ""
 "Add static pages to your event site, for example Terms of Service, venue "
 "listings, a code of conduct, etc."
