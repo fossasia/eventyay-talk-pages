@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2021-10-26 13:05+0000\n"
+"POT-Creation-Date: 2022-01-11 16:24+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -20,7 +20,7 @@ msgstr ""
 "<= 4 && n % 1 == 0) ? 1: (n % 1 != 0 ) ? 2 : 3;\n"
 
 #: local/pretalx-pages/pretalx_pages/apps.py:10
-#: local/pretalx-pages/pretalx_pages/signals.py:20
+#: local/pretalx-pages/pretalx_pages/signals.py:19
 #: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:5
 #: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:7
 msgid "Pages"
@@ -32,43 +32,43 @@ msgid ""
 "listings, a code of conduct, etc."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/models.py:16
+#: local/pretalx-pages/pretalx_pages/models.py:15
 msgid "URL to static page"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/models.py:21
+#: local/pretalx-pages/pretalx_pages/models.py:20
 msgid "The slug may only contain letters, numbers, dots and dashes."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/models.py:26
+#: local/pretalx-pages/pretalx_pages/models.py:25
 msgid ""
 "This will be used to generate the URL of the page. Please only use latin "
 "letters, numbers, dots and dashes. You cannot change this afterwards."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/models.py:31
+#: local/pretalx-pages/pretalx_pages/models.py:30
 #: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:28
 msgid "Page title"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/models.py:33
+#: local/pretalx-pages/pretalx_pages/models.py:32
 #: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:20
 msgid "Page content"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/models.py:36
+#: local/pretalx-pages/pretalx_pages/models.py:35
 msgid "Show link in the event footer"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/signals.py:42
+#: local/pretalx-pages/pretalx_pages/signals.py:41
 msgid "The page has been created."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/signals.py:43
+#: local/pretalx-pages/pretalx_pages/signals.py:42
 msgid "The page has been modified."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/signals.py:44
+#: local/pretalx-pages/pretalx_pages/signals.py:43
 msgid "The page has been deleted."
 msgstr ""
 
@@ -112,18 +112,18 @@ msgstr ""
 msgid "Create a new page"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:42
-#: local/pretalx-pages/pretalx_pages/views.py:47
+#: local/pretalx-pages/pretalx_pages/views.py:41
+#: local/pretalx-pages/pretalx_pages/views.py:46
 #: local/pretalx-pages/pretalx_pages/views.py:111
-#: local/pretalx-pages/pretalx_pages/views.py:219
+#: local/pretalx-pages/pretalx_pages/views.py:225
 msgid "The requested page does not exist."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:61
+#: local/pretalx-pages/pretalx_pages/views.py:60
 msgid "The order of pages has been updated."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:92
+#: local/pretalx-pages/pretalx_pages/views.py:91
 msgid "You already have a page on that URL."
 msgstr ""
 
@@ -131,19 +131,19 @@ msgstr ""
 msgid "URL form"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:133
+#: local/pretalx-pages/pretalx_pages/views.py:136
 msgid "The selected page has been deleted."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:159
+#: local/pretalx-pages/pretalx_pages/views.py:162
 msgid "Your changes have been saved."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:171
-#: local/pretalx-pages/pretalx_pages/views.py:205
+#: local/pretalx-pages/pretalx_pages/views.py:174
+#: local/pretalx-pages/pretalx_pages/views.py:211
 msgid "We could not save your changes. See below for details."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:193
+#: local/pretalx-pages/pretalx_pages/views.py:199
 msgid "The new page has been created."
 msgstr ""
