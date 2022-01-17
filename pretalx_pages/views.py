@@ -1,3 +1,5 @@
+import bleach
+
 from django import forms
 from django.contrib import messages
 from django.db import transaction
@@ -15,6 +17,7 @@ from django.views.generic import (
 )
 from i18nfield.forms import I18nModelForm
 from pretalx.common.mixins.views import EventPermissionRequired
+from pretalx.common.templatetags.rich_text import md
 
 from .models import Page
 
@@ -227,5 +230,19 @@ class ShowPageView(TemplateView):
     def get_context_data(self, **kwargs):
         ctx = super().get_context_data()
         page = self.get_page()
-        ctx["page"] = page
+        ctx["page_title"] = page.title
+
+        attributes = dict(bleach.ALLOWED_ATTRIBUTES)
+        attributes["a"] = ["href", "title", "target", "class"]
+        attributes["p"] = ["class"]
+        attributes["li"] = ["class"]
+        attributes["img"] = ["src"]
+
+        ctx["content"] = bleach.clean(
+            md.reset().convert(str(page.text)),
+            tags=bleach.ALLOWED_TAGS
+            + ["img", "p", "br", "s", "sup", "sub", "u", "h3", "h4", "h5", "h6"],
+            attributes=attributes,
+            protocols=bleach.ALLOWED_PROTOCOLS + ["data"],
+        )
         return ctx
