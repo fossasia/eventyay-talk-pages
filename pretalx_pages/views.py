@@ -16,7 +16,12 @@ from django.views.generic import (
 )
 from i18nfield.forms import I18nModelForm
 from pretalx.common.mixins.views import EventPermissionRequired
-from pretalx.common.templatetags.rich_text import md
+from pretalx.common.templatetags.rich_text import (
+    ALLOWED_ATTRIBUTES,
+    ALLOWED_PROTOCOLS,
+    ALLOWED_TAGS,
+    md,
+)
 
 from .models import Page
 
@@ -231,7 +236,7 @@ class ShowPageView(TemplateView):
         page = self.get_page()
         ctx["page_title"] = page.title
 
-        attributes = dict(bleach.ALLOWED_ATTRIBUTES)
+        attributes = dict(ALLOWED_ATTRIBUTES)
         attributes["a"] = ["href", "title", "target", "class"]
         attributes["p"] = ["class"]
         attributes["li"] = ["class"]
@@ -239,9 +244,9 @@ class ShowPageView(TemplateView):
 
         ctx["content"] = bleach.clean(
             md.reset().convert(str(page.text)),
-            tags=bleach.ALLOWED_TAGS
+            tags=ALLOWED_TAGS
             + ["img", "p", "br", "s", "sup", "sub", "u", "h3", "h4", "h5", "h6"],
             attributes=attributes,
-            protocols=bleach.ALLOWED_PROTOCOLS + ["data"],
+            protocols=ALLOWED_PROTOCOLS + ["data"],
         )
         return ctx
