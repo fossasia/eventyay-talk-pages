@@ -1,4 +1,5 @@
 import bleach
+from csp.decorators import csp_update
 from django import forms
 from django.contrib import messages
 from django.db import transaction
@@ -6,6 +7,7 @@ from django.db.models import Max
 from django.http import Http404, HttpResponseRedirect
 from django.shortcuts import redirect
 from django.urls import reverse
+from django.utils.decorators import method_decorator
 from django.utils.translation import gettext_lazy as _
 from django.views.generic import (
     CreateView,
@@ -220,6 +222,7 @@ class PageCreate(EventPermissionRequired, PageEditorMixin, CreateView):
         return super().form_invalid(form)
 
 
+@method_decorator(csp_update(IMG_SRC="*"), name="dispatch")
 class ShowPageView(TemplateView):
     template_name = "pretalx_pages/show.html"
 
