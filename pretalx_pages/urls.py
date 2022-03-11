@@ -5,37 +5,37 @@ from . import views
 
 urlpatterns = [
     re_path(
-        fr"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/$",
+        rf"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/$",
         views.PageList.as_view(),
         name="index",
     ),
     re_path(
-        fr"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/create$",
+        rf"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/create$",
         views.PageCreate.as_view(),
         name="create",
     ),
     re_path(
-        fr"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/(?P<page>[{SLUG_CHARS}]+)/$",
+        rf"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/(?P<page>[{SLUG_CHARS}]+)/$",
         views.PageUpdate.as_view(),
         name="edit",
     ),
     re_path(
-        fr"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/(?P<page>[{SLUG_CHARS}]+)/delete$",
+        rf"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/(?P<page>[{SLUG_CHARS}]+)/delete$",
         views.PageDelete.as_view(),
         name="delete",
     ),
     re_path(
-        fr"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/(?P<page>[{SLUG_CHARS}]+)/up$",
+        rf"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/(?P<page>[{SLUG_CHARS}]+)/up$",
         views.page_move_up,
         name="up",
     ),
     re_path(
-        fr"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/(?P<page>[{SLUG_CHARS}]+)/down$",
+        rf"^orga/event/(?P<event>[{SLUG_CHARS}]+)/pages/(?P<page>[{SLUG_CHARS}]+)/down$",
         views.page_move_down,
         name="down",
     ),
     re_path(
-        fr"^(?P<event>[{SLUG_CHARS}]+)/page/(?P<slug>[^/]+)/$",
+        rf"^(?P<event>[{SLUG_CHARS}]+)/page/(?P<slug>[^/]+)/$",
         views.ShowPageView.as_view(),
         name="show",
     ),
