@@ -24,7 +24,7 @@ cmdclass = {"build": CustomBuild}
 
 setup(
     name="pretalx-pages",
-    version="1.3.2",
+    version="1.3.3",
     description="Static pages for pretalx, e.g. information, venue listings, a code of conduct, etc.",
     long_description=long_description,
     url="https://github.com/pretalx/pretalx-pages",
