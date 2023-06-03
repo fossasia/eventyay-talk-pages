@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2022-03-09 16:42+0000\n"
+"POT-Creation-Date: 2023-02-19 15:38+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -110,38 +110,38 @@ msgstr ""
 msgid "Create a new page"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:48
-#: local/pretalx-pages/pretalx_pages/views.py:53
-#: local/pretalx-pages/pretalx_pages/views.py:118
-#: local/pretalx-pages/pretalx_pages/views.py:232
+#: local/pretalx-pages/pretalx_pages/views.py:50
+#: local/pretalx-pages/pretalx_pages/views.py:55
+#: local/pretalx-pages/pretalx_pages/views.py:120
+#: local/pretalx-pages/pretalx_pages/views.py:235
 msgid "The requested page does not exist."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:67
+#: local/pretalx-pages/pretalx_pages/views.py:69
 msgid "The order of pages has been updated."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:98
+#: local/pretalx-pages/pretalx_pages/views.py:100
 msgid "You already have a page on that URL."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:105
+#: local/pretalx-pages/pretalx_pages/views.py:107
 msgid "URL form"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:143
+#: local/pretalx-pages/pretalx_pages/views.py:145
 msgid "The selected page has been deleted."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:169
+#: local/pretalx-pages/pretalx_pages/views.py:171
 msgid "Your changes have been saved."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:181
-#: local/pretalx-pages/pretalx_pages/views.py:218
+#: local/pretalx-pages/pretalx_pages/views.py:183
+#: local/pretalx-pages/pretalx_pages/views.py:220
 msgid "We could not save your changes. See below for details."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:206
+#: local/pretalx-pages/pretalx_pages/views.py:208
 msgid "The new page has been created."
 msgstr ""
