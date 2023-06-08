@@ -243,7 +243,7 @@ class ShowPageView(TemplateView):
         attributes["a"] = ["href", "title", "target", "class"]
         attributes["p"] = ["class"]
         attributes["li"] = ["class"]
-        attributes["img"] = ["src"]
+        attributes["img"] = ["src", "title", "alt", "class"]
 
         ctx["content"] = bleach.clean(
             md.reset().convert(str(page.text)),
