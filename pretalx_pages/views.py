@@ -250,6 +250,9 @@ class ShowPageView(TemplateView):
             tags=ALLOWED_TAGS
             | {"img", "p", "br", "s", "sup", "sub", "u", "h3", "h4", "h5", "h6"},
             attributes=attributes,
-            protocols=ALLOWED_PROTOCOLS | {"data", },
+            protocols=ALLOWED_PROTOCOLS
+            | {
+                "data",
+            },
         )
         return ctx
