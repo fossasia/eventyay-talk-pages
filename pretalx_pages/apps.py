@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 from django.utils.translation import gettext_lazy
+from pretalx_pages import __version__
 
 
 class PluginApp(AppConfig):
@@ -13,7 +14,7 @@ class PluginApp(AppConfig):
             "Add static pages to your event site, for example Terms of Service, venue listings, a code of conduct, etc."
         )
         visible = True
-        version = "1.3.3"
+        version = __version__
         category = "FEATURE"
 
     def ready(self):
