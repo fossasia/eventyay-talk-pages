@@ -28,6 +28,9 @@ repository = "https://github.com/pretalx/pretalx-pages.git"
 [tool.setuptools]
 include-package-data = true
 
+[tool.setuptools.dynamic]
+version = {attr = "pretalx_pages.__version__"}
+
 [tool.setuptools.packages.find]
 include = ["pretalx*"]
 
