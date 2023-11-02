@@ -1,5 +1,6 @@
 from django.apps import AppConfig
 from django.utils.translation import gettext_lazy
+
 from pretalx_pages import __version__
 
 
