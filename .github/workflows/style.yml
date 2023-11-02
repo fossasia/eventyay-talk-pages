@@ -108,15 +108,13 @@ jobs:
           key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py') }}
           restore-keys: |
             ${{ runner.os }}-pip-
-      - name: Install pretalx
-        run: pip3 install pretalx
       - name: Install Dependencies
         run: pip3 install twine check-manifest -Ue .
       - name: Run check-manifest
         run: check-manifest .
         working-directory: .
       - name: Build package
-        run: python setup.py sdist
+        run: python -m build
         working-directory: .
       - name: Check package
         run: twine check dist/*
