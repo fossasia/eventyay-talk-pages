@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.utils.html import escape
 from django.utils.translation import gettext_lazy as _
 from pretalx.cfp.signals import footer_link
-from pretalx.common.signals import activitylog_display, activitylog_display_object
+from pretalx.common.signals import activitylog_display, activitylog_object_link
 from pretalx.common.urls import build_absolute_uri
 from pretalx.orga.signals import event_copy_data, nav_event
 
@@ -46,8 +46,8 @@ def pretalx_activitylog_display(sender, activitylog, **kwargs):
     return names.get(event_type)
 
 
-@receiver(signal=activitylog_display_object)
-def pretalx_activitylog_display_object(sender, activitylog, **kwargs):
+@receiver(signal=activitylog_object_link)
+def pretalx_activitylog_object_link(sender, activitylog, **kwargs):
     if isinstance(activitylog.content_object, Page):
         return (
             _("Page")
