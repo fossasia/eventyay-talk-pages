@@ -1,8 +1,9 @@
 from django.dispatch import receiver
 from django.urls import reverse
+from django.utils.html import escape
 from django.utils.translation import gettext_lazy as _
 from pretalx.cfp.signals import footer_link
-from pretalx.common.signals import activitylog_display
+from pretalx.common.signals import activitylog_display, activitylog_display_object
 from pretalx.common.urls import build_absolute_uri
 from pretalx.orga.signals import event_copy_data, nav_event
 
@@ -43,6 +44,16 @@ def pretalx_activitylog_display(sender, activitylog, **kwargs):
         "pretalx_pages.page.deleted": _("The page has been deleted."),
     }
     return names.get(event_type)
+
+
+@receiver(signal=activitylog_display_object)
+def pretalx_activitylog_display_object(sender, activitylog, **kwargs):
+    if isinstance(activitylog.content_object, Page):
+        return (
+            _("Page")
+            + f' <a href="{activitylog.content_object.urls.public}">{escape(activitylog.content_object.title)}</a>'
+        )
+        return activitylog.content_object.title
 
 
 @receiver(footer_link, dispatch_uid="pages_footer_links")
