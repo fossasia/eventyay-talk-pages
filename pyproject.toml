@@ -35,6 +35,4 @@ version = {attr = "pretalx_pages.__version__"}
 include = ["pretalx*"]
 
 [tool.check-manifest]
-ignore = [
-  ".*",
-]
+ignore = [".*"]

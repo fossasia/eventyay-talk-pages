@@ -19,16 +19,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: "3.10"
-      - uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          cache: "pip"
+          python-version: "3.11"
       - name: Install isort
         run: pip3 install isort
       - name: Run isort
@@ -38,16 +33,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: "3.10"
-      - uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          cache: "pip"
+          python-version: "3.11"
       - name: Install Dependencies
         run: pip3 install flake8 flake8-bugbear
       - name: Run flake8
@@ -58,16 +48,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: "3.10"
-      - uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          cache: "pip"
+          python-version: "3.11"
       - name: Install Dependencies
         run: pip3 install black
       - name: Run black
@@ -78,16 +63,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: "3.10"
-      - uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          cache: "pip"
+          python-version: "3.11"
       - name: Install Dependencies
         run: pip3 install djhtml
       - name: Run docformatter
@@ -98,16 +78,11 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2
-      - name: Set up Python 3.10
+      - name: Set up Python 3.11
         uses: actions/setup-python@v1
         with:
-          python-version: "3.10"
-      - uses: actions/cache@v1
-        with:
-          path: ~/.cache/pip
-          key: ${{ runner.os }}-pip-${{ hashFiles('**/setup.py') }}
-          restore-keys: |
-            ${{ runner.os }}-pip-
+          cache: "pip"
+          python-version: "3.11"
       - name: Install Dependencies
         run: pip3 install twine check-manifest -Ue .
       - name: Run check-manifest
