@@ -15,7 +15,7 @@ class Page(LogMixin, models.Model):
         verbose_name=_("URL to static page"),
         validators=[
             RegexValidator(
-                regex="^[a-zA-Z0-9.-]+$",
+                regex="^[a-zA-Z0-9][a-zA-Z0-9.-]+$",
                 message=_(
                     "The slug may only contain letters, numbers, dots and dashes."
                 ),
