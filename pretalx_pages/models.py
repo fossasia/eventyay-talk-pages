@@ -2,7 +2,7 @@ from django.core.validators import RegexValidator
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from i18nfield.fields import I18nCharField, I18nTextField
-from pretalx.common.mixins.models import LogMixin
+from pretalx.common.models.mixins import LogMixin
 from pretalx.common.text.phrases import phrases
 from pretalx.event.models import Event
 

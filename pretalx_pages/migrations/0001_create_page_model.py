@@ -5,7 +5,7 @@ import django.db.models.deletion
 import i18nfield.fields
 from django.db import migrations, models
 
-import pretalx.common.mixins.models
+import pretalx.common.models.mixins
 
 
 class Migration(migrations.Migration):
@@ -54,6 +54,6 @@ class Migration(migrations.Migration):
             options={
                 "ordering": ["position", "title"],
             },
-            bases=(pretalx.common.mixins.models.LogMixin, models.Model),
+            bases=(pretalx.common.models.mixins.LogMixin, models.Model),
         ),
     ]
