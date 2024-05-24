@@ -136,7 +136,7 @@ class PageDelete(EventPermissionRequired, PageDetailMixin, DeleteView):
     permission_required = "orga.change_settings"
 
     @transaction.atomic
-    def form_valid(self, request, *args, **kwargs):
+    def post(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.log_action(
             "pretalx_pages.page.deleted", person=self.request.user, orga=True
