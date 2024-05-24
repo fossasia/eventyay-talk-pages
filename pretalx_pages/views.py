@@ -17,13 +17,13 @@ from django.views.generic import (
     UpdateView,
 )
 from i18nfield.forms import I18nModelForm
-from pretalx.common.views.mixins import EventPermissionRequired
 from pretalx.common.templatetags.rich_text import (
     ALLOWED_ATTRIBUTES,
     ALLOWED_PROTOCOLS,
     ALLOWED_TAGS,
     md,
 )
+from pretalx.common.views.mixins import EventPermissionRequired
 
 from .models import Page
 
