@@ -17,13 +17,13 @@ from django.views.generic import (
     UpdateView,
 )
 from i18nfield.forms import I18nModelForm
+from pretalx.common.mixins.views import EventPermissionRequired
 from pretalx.common.templatetags.rich_text import (
     ALLOWED_ATTRIBUTES,
     ALLOWED_PROTOCOLS,
     ALLOWED_TAGS,
     md,
 )
-from pretalx.common.views.mixins import EventPermissionRequired
 
 from .models import Page
 
@@ -136,7 +136,7 @@ class PageDelete(EventPermissionRequired, PageDetailMixin, DeleteView):
     permission_required = "orga.change_settings"
 
     @transaction.atomic
-    def post(self, request, *args, **kwargs):
+    def form_valid(self, request, *args, **kwargs):
         self.object = self.get_object()
         self.object.log_action(
             "pretalx_pages.page.deleted", person=self.request.user, orga=True
