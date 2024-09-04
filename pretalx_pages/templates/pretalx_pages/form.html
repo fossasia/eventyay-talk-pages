@@ -18,7 +18,6 @@
                 </fieldset>
                 <fieldset id="content">
                     <legend>{% trans "Page content" %}</legend>
-
                     {% bootstrap_field form.text layout="event" %}
                 </fieldset>
                 {% include "orga/includes/submit_row.html" %}
@@ -27,9 +26,7 @@
                 <div class="col-xs-12 col-lg-2">
                     <div class="panel panel-default">
                         <div class="panel-heading">
-                            <h3 class="panel-title">
-                                {% trans "Page history" %}
-                            </h3>
+                            <h3 class="panel-title">{% trans "Page history" %}</h3>
                         </div>
                         {% include "common/logs.html" with entries=page.logged_actions %}
                     </div>
