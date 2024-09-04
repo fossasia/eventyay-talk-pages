@@ -10,7 +10,8 @@
     {% endif %}
 {% endblock %}
 
-{% block title %}{{ page_title }} :: {{ event.name }}{% endblock %}
+{% block extra_title %}{{ page_title }}{% endblock %}
+
 {% block content %}
     <h2>{{ page_title }}</h2>
     <article>{{ content|safe }}</article>

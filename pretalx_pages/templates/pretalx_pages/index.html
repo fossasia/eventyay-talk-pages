@@ -2,7 +2,9 @@
 {% load i18n %}
 {% load compress %}
 {% load static %}
-{% block title %}{% trans "Pages" %}{% endblock %}
+
+{% block extra_title %}{% trans "Pages" %}{% endblock %}
+
 {% block content %}
     <h1>{% trans "Pages" %}</h1>
     {% if pages|length == 0 %}

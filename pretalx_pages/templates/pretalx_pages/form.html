@@ -2,7 +2,9 @@
 {% load i18n %}
 {% load bootstrap4 %}
 {% load static %}
-{% block title %}{% trans "Page" %}{% endblock %}
+
+{% block extra_title %}{% trans "Page" %}{% endblock %}
+
 {% block content %}
     <h1>{% trans "Page" %}</h1>
     <form action="" method="post" class="form-horizontal" data-id="{{ page.id }}">
