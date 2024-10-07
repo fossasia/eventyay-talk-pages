@@ -10,8 +10,6 @@
     <form action="" method="post" class="form-horizontal" data-id="{{ page.id }}">
         {% csrf_token %}
         {% bootstrap_form_errors form type='non_fields' %}
-        <div class="row">
-            <div class="col-xs-12 {% if page %}col-lg-10{% endif %}">
                 <fieldset>
                     <legend>{% trans "General information" %}</legend>
                     {% bootstrap_field form.title layout="event" %}
@@ -23,17 +21,5 @@
                     {% bootstrap_field form.text layout="event" %}
                 </fieldset>
                 {% include "orga/includes/submit_row.html" %}
-            </div>
-            {% if page and page.pk %}
-                <div class="col-xs-12 col-lg-2">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            <h3 class="panel-title">{% trans "Page history" %}</h3>
-                        </div>
-                        {% include "common/logs.html" with entries=page.logged_actions %}
-                    </div>
-                </div>
-            {% endif %}
-        </div>
     </form>
 {% endblock %}
