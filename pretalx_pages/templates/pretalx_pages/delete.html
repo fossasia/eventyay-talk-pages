@@ -13,7 +13,7 @@
             {% endblocktrans %}
         </p>
         <div class="form-group submit-group">
-            <a href="{% url "plugins:pretalx_pages:index" event=request.event.slug %}" class="btn btn-default btn-cancel">
+            <a href="{% url "plugins:pretalx_pages:index" event=request.event.slug %}" class="btn btn-outline-danger btn-cancel">
                 {% trans "Cancel" %}
             </a>
             <button type="submit" class="btn btn-danger btn-save">
