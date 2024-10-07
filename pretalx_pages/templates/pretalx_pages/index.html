@@ -39,12 +39,12 @@
                                 <strong><a href="{% url "plugins:pretalx_pages:edit" event=request.event.slug page=p.slug %}">{{ p.title }}</a></strong>
                             </td>
                             <td class="text-right flip">
-                                <a href="{% url "plugins:pretalx_pages:up" event=request.event.slug page=p.slug %}" class="btn btn-default btn-sm {% if forloop.counter0 == 0 %}disabled{% endif %}"><i class="fa fa-arrow-up"></i></a>
-                                <a href="{% url "plugins:pretalx_pages:down" event=request.event.slug page=p.slug %}" class="btn btn-default btn-sm {% if forloop.revcounter0 == 0 %}disabled{% endif %}"><i class="fa fa-arrow-down"></i></a>
+                                <a href="{% url "plugins:pretalx_pages:up" event=request.event.slug page=p.slug %}" class="btn btn-info btn-sm {% if forloop.counter0 == 0 %}disabled{% endif %}"><i class="fa fa-arrow-up"></i></a>
+                                <a href="{% url "plugins:pretalx_pages:down" event=request.event.slug page=p.slug %}" class="btn btn-info btn-sm {% if forloop.revcounter0 == 0 %}disabled{% endif %}"><i class="fa fa-arrow-down"></i></a>
                             </td>
                             <td class="text-right flip">
-                                <a href="{% url "plugins:pretalx_pages:show" event=request.event.slug slug=p.slug %}" class="btn btn-default btn-sm" target="_blank"><i class="fa fa-eye"></i></a>
-                                <a href="{% url "plugins:pretalx_pages:edit" event=request.event.slug page=p.slug %}" class="btn btn-default btn-sm"><i class="fa fa-edit"></i></a>
+                                <a href="{% url "plugins:pretalx_pages:show" event=request.event.slug slug=p.slug %}" class="btn btn-success btn-sm" target="_blank"><i class="fa fa-eye"></i></a>
+                                <a href="{% url "plugins:pretalx_pages:edit" event=request.event.slug page=p.slug %}" class="btn btn-info btn-sm"><i class="fa fa-edit"></i></a>
                                 <a href="{% url "plugins:pretalx_pages:delete" event=request.event.slug page=p.slug %}" class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></a>
                             </td>
                         </tr>
