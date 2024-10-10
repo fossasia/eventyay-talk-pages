@@ -8,7 +8,7 @@
     <h1>{% trans "Page" %}</h1>
     <form action="" method="post" class="form-horizontal" data-id="{{ page.id }}">
         {% csrf_token %}
-        {% include "common/forms/errors.html" with errors=form.non_field_errors %}
+        {{ form.non_field_errors }}
         <fieldset>
             <legend>{% trans "General information" %}</legend>
             {{ form.title.as_field_group }}
