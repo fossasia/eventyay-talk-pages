@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: PACKAGE VERSION\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2023-11-10 00:11+0000\n"
+"POT-Creation-Date: 2024-10-12 00:15+0000\n"
 "PO-Revision-Date: YEAR-MO-DA HO:MI+ZONE\n"
 "Last-Translator: FULL NAME <EMAIL@ADDRESS>\n"
 "Language-Team: LANGUAGE <LL@li.org>\n"
@@ -17,10 +17,11 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
+
 #: local/pretalx-pages/pretalx_pages/apps.py:12
 #: local/pretalx-pages/pretalx_pages/signals.py:20
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:5
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:7
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:6
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:9
 msgid "Pages"
 msgstr ""
 
@@ -45,12 +46,12 @@ msgid ""
 msgstr ""
 
 #: local/pretalx-pages/pretalx_pages/models.py:30
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:28
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:30
 msgid "Page title"
 msgstr ""
 
 #: local/pretalx-pages/pretalx_pages/models.py:32
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:20
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:19
 msgid "Page content"
 msgstr ""
 
@@ -72,77 +73,73 @@ msgstr ""
 
 #: local/pretalx-pages/pretalx_pages/signals.py:53
 #: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:5
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:7
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:8
 msgid "Page"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:3
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:5
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:4
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:7
 msgid "Delete a page"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:8
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:11
 #, python-format
 msgid "Are you sure you want to delete the page <strong>%(name)s</strong>?"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:13
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:17
 msgid "Cancel"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:16
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/delete.html:20
 msgid "Delete"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:14
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:13
 msgid "General information"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/form.html:31
-msgid "Page history"
-msgstr ""
-
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:11
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:13
 msgid "You haven't created any pages yet."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:17
-#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:21
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:19
+#: local/pretalx-pages/pretalx_pages/templates/pretalx_pages/index.html:23
 msgid "Create a new page"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:50
-#: local/pretalx-pages/pretalx_pages/views.py:55
-#: local/pretalx-pages/pretalx_pages/views.py:120
-#: local/pretalx-pages/pretalx_pages/views.py:235
+#: local/pretalx-pages/pretalx_pages/views.py:44
+#: local/pretalx-pages/pretalx_pages/views.py:49
+#: local/pretalx-pages/pretalx_pages/views.py:114
+#: local/pretalx-pages/pretalx_pages/views.py:229
 msgid "The requested page does not exist."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:69
+#: local/pretalx-pages/pretalx_pages/views.py:63
 msgid "The order of pages has been updated."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:100
+#: local/pretalx-pages/pretalx_pages/views.py:94
 msgid "You already have a page on that URL."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:107
+#: local/pretalx-pages/pretalx_pages/views.py:101
 msgid "URL form"
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:145
+#: local/pretalx-pages/pretalx_pages/views.py:139
 msgid "The selected page has been deleted."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:171
+#: local/pretalx-pages/pretalx_pages/views.py:165
 msgid "Your changes have been saved."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:183
-#: local/pretalx-pages/pretalx_pages/views.py:220
+#: local/pretalx-pages/pretalx_pages/views.py:177
+#: local/pretalx-pages/pretalx_pages/views.py:214
 msgid "We could not save your changes. See below for details."
 msgstr ""
 
-#: local/pretalx-pages/pretalx_pages/views.py:208
+#: local/pretalx-pages/pretalx_pages/views.py:202
 msgid "The new page has been created."
 msgstr ""
