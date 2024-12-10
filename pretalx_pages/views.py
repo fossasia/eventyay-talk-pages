@@ -1,3 +1,5 @@
+from functools import partial
+
 import bleach
 from csp.decorators import csp_update
 from django import forms
@@ -17,9 +19,33 @@ from django.views.generic import (
     UpdateView,
 )
 from i18nfield.forms import I18nModelForm
+from pretalx.common.templatetags import rich_text
 from pretalx.common.views.mixins import EventPermissionRequired
 
 from .models import Page
+
+ALLOWED_ATTRIBUTES = dict(rich_text.ALLOWED_ATTRIBUTES)
+ALLOWED_ATTRIBUTES["a"] = ["href", "title", "target", "class"]
+ALLOWED_ATTRIBUTES["p"] = ["class"]
+ALLOWED_ATTRIBUTES["li"] = ["class"]
+ALLOWED_ATTRIBUTES["img"] = ["src", "title", "alt", "class"]
+CLEANER = bleach.Cleaner(
+    tags=rich_text.ALLOWED_TAGS
+    | {"img", "p", "br", "s", "sup", "sub", "u", "h3", "h4", "h5", "h6"},
+    attributes=ALLOWED_ATTRIBUTES,
+    protocols=rich_text.ALLOWED_PROTOCOLS | {"data"},
+    filters=[
+        partial(
+            bleach.linkifier.LinkifyFilter,
+            url_re=rich_text.TLD_REGEX,
+            parse_email=True,
+            email_re=rich_text.EMAIL_REGEX,
+            skip_tags={"pre", "code"},
+            callbacks=bleach.linkifier.DEFAULT_CALLBACKS
+            + [rich_text.safelink_callback],
+        )
+    ],
+)
 
 
 class PageList(EventPermissionRequired, ListView):
@@ -232,27 +258,5 @@ class ShowPageView(TemplateView):
         ctx = super().get_context_data()
         page = self.get_page()
         ctx["page_title"] = page.title
-        from pretalx.common.templatetags.rich_text import (
-            ALLOWED_ATTRIBUTES,
-            ALLOWED_PROTOCOLS,
-            ALLOWED_TAGS,
-            md,
-        )
-
-        attributes = dict(ALLOWED_ATTRIBUTES)
-        attributes["a"] = ["href", "title", "target", "class"]
-        attributes["p"] = ["class"]
-        attributes["li"] = ["class"]
-        attributes["img"] = ["src", "title", "alt", "class"]
-
-        ctx["content"] = bleach.clean(
-            md.reset().convert(str(page.text)),
-            tags=ALLOWED_TAGS
-            | {"img", "p", "br", "s", "sup", "sub", "u", "h3", "h4", "h5", "h6"},
-            attributes=attributes,
-            protocols=ALLOWED_PROTOCOLS
-            | {
-                "data",
-            },
-        )
+        ctx["content"] = CLEANER.clean(rich_text.md.reset().convert(str(page.text)))
         return ctx
