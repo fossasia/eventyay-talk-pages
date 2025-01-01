@@ -61,7 +61,7 @@ def footer_link_pages(sender, request=None, **kwargs):
     return [
         {
             "label": page.title,
-            "link": build_absolute_uri(
+            "url": build_absolute_uri(
                 "plugins:pretalx_pages:show",
                 event=sender,
                 kwargs={"event": sender.slug, "slug": page.slug},
